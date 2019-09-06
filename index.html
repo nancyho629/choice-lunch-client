@@ -12,6 +12,61 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Choice Lunch</h1>
+<!-- Messages -->
+
+<section class='messages'>
+  <div id="message"></div>
+</section>
+
+<!-- Messages end -->
+<!-- sign up -->
+<div class="sign-in-container">
+<form id='sign-up'>
+  <fieldset>
+    <legend>Sign Up!</legend>
+    <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+    <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+    <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
+    <input type="submit" value="Sign Up!">
+  </fieldset>
+</form>
+</div>
+<!-- sign up end -->
+
+<div class="sign-in-container">
+<!-- sign in -->
+<form id='sign-in'>
+  <fieldset>
+    <legend>Sign In!</legend>
+    <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+    <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+    <input type="submit" value="Sign In!">
+  </fieldset>
+</form>
+</div>
+<!-- sign in end -->
+
+<!-- Change password -->
+<form id='change-password'>
+  <fieldset>
+    <legend>Change Password</legend>
+    <section class='change-pw-message'>
+      <div id="change-pw-message"></div>
+    </section>
+    <input type="password" name="passwords[old]" placeholder="Old Password">
+    <input type="password" name="passwords[new]" placeholder="New Password">
+    <input type="submit" value="Change Password!">
+  </fieldset>
+</form>
+
+<!-- sign out -->
+<form id='sign-out'>
+  <fieldset>
+  <input type="submit" value="Sign Out!">
+  </fieldset>
+</form>
+<!-- sign out end -->
+
     </body>
 </html>
