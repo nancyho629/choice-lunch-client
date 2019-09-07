@@ -3,10 +3,7 @@
 const store = require('../store')
 
 const signUpSuccess = function () {
-  $('#message')
-    .text('Sign Up Successful. Please log in!')
-  $('#message').removeClass()
-  $('#message').addClass('Success') // optional adds class for styling
+  $('#message').text('Sign Up Successful. Please log in!')
   $('form').trigger('reset')
 }
 
@@ -52,7 +49,7 @@ const signOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#change-password').hide()
-  $('#sign-out').hide()
+  // $('#sign-out').hide()
 }
 
 const signOutFailure = function () {

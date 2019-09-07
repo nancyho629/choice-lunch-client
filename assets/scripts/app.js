@@ -7,7 +7,9 @@
 // require('./example')
 
 const authEvents = require('./auth/events')
+const lunchEvents = require('./lunch/events')
 
 $(() => {
   authEvents.addHandlers()
+  lunchEvents.addHandlers()
 })

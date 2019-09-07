@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Choice Lunch</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -67,6 +67,22 @@
   </fieldset>
 </form>
 <!-- sign out end -->
+
+<!-- create restaurant -->
+<form id='create-restaurant'>
+  <fieldset>
+    <legend>Add a restaurant suggestion!</legend>
+    <section class='create-restaurant-message'>
+      <div id="restaurant"></div>
+    </section>
+    <input type="text" name="restaurant[name]" placeholder="Name">
+    <input type="text" name="restaurant[cuisine]" placeholder="Cuisine">
+    <input type="text" name="restaurant[url]" placeholder="URL">
+    <input type="text" name="restaurant[address]" placeholder="Address">
+    <input type="text" name="restaurant[best_thing_to_order]" placeholder="Best thing(s) to order">
+    <input type="submit" value="Add Restaurant!">
+  </fieldset>
+</form>
 
     </body>
 </html>
