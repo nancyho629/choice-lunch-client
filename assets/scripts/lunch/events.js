@@ -3,7 +3,6 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
-const store = require('./../store')
 
 const onGetRestaurants = (event) => {
   event.preventDefault()
@@ -25,26 +24,27 @@ const onGetRestaurants = (event) => {
 //     .catch(ui.onDestroyFailure)
 // }
 
-const onCreateRestaurant = (event) => {
-  event.preventDefault()
-  console.log(event)
-  const data = getFormFields(event.target)
-  api.create(data)
-    .then(ui.onCreateSuccess)
-    .catch(ui.onCreateFailure)
-}
-
 // const onCreateRestaurant = (event) => {
 //   event.preventDefault()
 //   console.log(event)
 //   const data = getFormFields(event.target)
 //   api.create(data)
-//     .then(responseData => {
-//       ui.onCreateSuccess(responseData)
-//       onGetRestaurants(event)
-//     })
+//     .then(ui.onCreateSuccess)
 //     .catch(ui.onCreateFailure)
 // }
+
+const onCreateRestaurant = (event) => {
+  event.preventDefault()
+  console.log(event)
+  const data = getFormFields(event.target)
+  api.create(data)
+    .then(responseData => {
+      console.log('before ui.oncreatesuccs: ', responseData)
+      ui.onCreateSuccess(responseData)
+      onGetRestaurants(event)
+    })
+    .catch(ui.onCreateFailure)
+}
 
 // const onUpdateRestaurant = (event) => {
 //   event.preventDefault()

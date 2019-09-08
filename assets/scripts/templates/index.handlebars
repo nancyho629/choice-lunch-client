@@ -1,0 +1,61 @@
+{{#each restaurants as |restaurant|}}
+  <form class="return" data-id="{{restaurant.id}}">
+    <p>
+    Name:
+    <input
+      type="text"
+      name="restaurant[name]"
+      value="{{restaurant.name}}" />
+    Cuisine:
+    <input
+      type="text"
+      name="restaurant[cuisine]"
+      {{#if restaurant.cuisine}}
+        value="{{restaurant.cuisine}}"
+      {{else}}
+        placeholder="None found"
+      {{/if}} />
+      URL:
+      <input
+        type="text"
+        name="restaurant[url]"
+        {{#if restaurant.url}}
+          value="{{restaurant.url}}"
+        {{else}}
+          placeholder="None found"
+        {{/if}} />
+        Address:
+        <input
+          type="text"
+          name="restaurant[address]"
+          {{#if restaurant.address}}
+            value="{{restaurant.address}}"
+          {{else}}
+            placeholder="None found"
+          {{/if}} />
+          Best Thing(s) to Order:
+          <input
+            type="text"
+            name="restaurant[best_thing_to_order]"
+            {{#if restaurant.best_thing_to_order}}
+              value="{{restaurant.best_thing_to_order}}"
+            {{else}}
+              placeholder="None found"
+            {{/if}} />
+    </p>
+    <input
+      type="submit"
+      value="Submit"
+      data-id="{{restaurant.id}}" />
+  </form>
+  <nav>
+    {{#if (isLoggedIn)}}
+      {{#if restaurant.editable}}
+        <button class="update-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Update</button>
+        <button class="delete-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Delete</button>
+      {{/if}}
+    {{/if}}
+  </nav>
+  <hr>
+
+{{/each}}

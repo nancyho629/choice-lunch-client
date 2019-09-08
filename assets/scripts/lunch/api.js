@@ -3,13 +3,15 @@
 const config = require('./../config')
 const store = require('./../store')
 
-// const index = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/restaurants',
-//     method: 'GET'
-//   })
-// }
-//
+const index = function () {
+  return $.ajax({
+    url: config.apiUrl + '/restaurants',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'GET'
+  })
+}
 // const show = function (data) {
 //   return $.ajax({
 //     url: config.apiUrl + '/restaurants/' + data.restaurant.id,
@@ -44,7 +46,7 @@ const create = function (data) {
 //   })
 // }
 module.exports = {
-  // index,
+  index,
   // show,
   // destroy,
   create

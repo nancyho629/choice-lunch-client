@@ -1,26 +1,18 @@
 'use strict'
+const showRestaurantsTemplate = require('../templates/index.handlebars')
 
-// does this need anything passed in?
-// const onIndexSuccess = function (responseData) {
-//   $('#message').text('Restaurants')
-//
-//   let restaurantsHtml = ''
-//
-//   responseData.restaurants.forEach(restaurant => {
-//     restaurantsHtml += `
-//     <h3>${restaurant.title}</h3>
-//     <h4>${restaurant.author}</h4>
-//     <h5>id: ${restaurant.id}</h5>
-//     <hr>
-//     `
-//   })
-//   $('#results').html(restaurantsHtml)
-// }
-//
-// const onIndexFailure = function () {
-//   $('#message').text(`There aren't any restaurant suggestions!`)
-// }
-//
+const onIndexSuccess = function (responseData) {
+  $('#message').text('Here are the restaurants!')
+  console.log('onIndexSuccess: ', responseData)
+  const showRestaurantHtml = showRestaurantsTemplate({restaurants: responseData.restaurants})
+  $('.content').html(showRestaurantHtml)
+  $('form.return input').prop('disabled', true)
+  $('form.return input[type=submit]').prop('hidden', true)
+}
+
+const onIndexFailure = function () {
+  $('#message').text(`There aren't any restaurant suggestions!`)
+}
 // let restaurantHtml = ''
 // const onShowSuccess = function (responseData) {
 //   $('#message').text(`Here's a restaurant!`)
@@ -70,8 +62,8 @@ const onCreateFailure = function () {
 // }
 
 module.exports = {
-  // onIndexSuccess,
-  // onIndexFailure,
+  onIndexSuccess,
+  onIndexFailure,
   // onShowFailure,
   // onShowSuccess,
   // onDestroyFailure,
