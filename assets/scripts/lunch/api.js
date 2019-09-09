@@ -18,13 +18,15 @@ const index = function () {
 //     method: 'GET'
 //   })
 // }
-//
-// const destroy = data => {
-//   return $.ajax({
-//     url: config.apiUrl + '/restaurants/' + data.restaurant.id,
-//     method: 'DELETE'
-//   })
-// }
+const destroy = restaurantID => {
+  return $.ajax({
+    url: config.apiUrl + '/restaurants/' + restaurantID,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    method: 'DELETE'
+  })
+}
 
 const create = function (data) {
   console.log(data)
@@ -38,17 +40,20 @@ const create = function (data) {
   })
 }
 
-// const update = data => {
-//   return $.ajax({
-//     url: config.apiUrl + '/restaurants/' + data.restaurant.id,
-//     method: 'PATCH',
-//     data: data
-//   })
-// }
+const update = (data, restaurantId) => {
+  return $.ajax({
+    url: config.apiUrl + '/restaurants/' + restaurantId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 module.exports = {
   index,
   // show,
-  // destroy,
-  create
-  // update
+  destroy,
+  create,
+  update
 }

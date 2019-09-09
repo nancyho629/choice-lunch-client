@@ -48,14 +48,8 @@
       value="Submit"
       data-id="{{restaurant.id}}" />
   </form>
-  <nav>
-    {{#if (isLoggedIn)}}
-      {{#if restaurant.editable}}
-        <button class="update-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Update</button>
-        <button class="delete-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Delete</button>
-      {{/if}}
-    {{/if}}
-  </nav>
+          <button class="delete-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Delete</button>
+          <button class="update-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Update</button>
   <hr>
 
 {{/each}}

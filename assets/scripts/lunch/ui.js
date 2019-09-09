@@ -7,7 +7,7 @@ const onIndexSuccess = function (responseData) {
   const showRestaurantHtml = showRestaurantsTemplate({restaurants: responseData.restaurants})
   $('.content').html(showRestaurantHtml)
   $('form.return input').prop('disabled', true)
-  $('form.return input[type=submit]').prop('hidden', true)
+  // $('form.return input[type=submit]').prop('hidden', true)
 }
 
 const onIndexFailure = function () {
@@ -27,13 +27,12 @@ const onIndexFailure = function () {
 // const onShowFailure = function () {
 //   $('#message').text(`Restaurant Not Found`)
 // }
-// const onDestroyFailure = function () {
-//   $('#message').text(`Restaurant Not Found`)
-// }
-//
-// const onDestroySuccess = function () {
-//   $('#message').text(`You deleted a restaurant`)
-// }
+const onDestroyFailure = function () {
+  $('#message').text(`Restaurant Removed`)
+}
+const onDestroySuccess = function () {
+  $('#message').text(`You deleted a restaurant`)
+}
 
 const onCreateSuccess = responseData => {
   $('#message').text(`You've added a new suggestion!! `)
@@ -53,23 +52,22 @@ const onCreateFailure = function () {
   $('form').trigger('reset')
 }
 
-// const onUpdateSuccess = () => {
-//   $('#message').text(`You updated your restaurant listing! `)
-// }
-//
-// const onUpdateFailure = function () {
-//   $('#message').text(`Restaurant Not Updated`)
-// }
+const onUpdateSuccess = () => {
+  $('#message').text(`You updated your restaurant listing! `)
+}
+const onUpdateFailure = function () {
+  $('#message').text(`Restaurant Not Updated`)
+}
 
 module.exports = {
   onIndexSuccess,
   onIndexFailure,
   // onShowFailure,
   // onShowSuccess,
-  // onDestroyFailure,
-  // onDestroySuccess,
+  onDestroyFailure,
+  onDestroySuccess,
   onCreateFailure,
-  onCreateSuccess
-  // onUpdateSuccess,
-  // onUpdateFailure
+  onCreateSuccess,
+  onUpdateSuccess,
+  onUpdateFailure
 }

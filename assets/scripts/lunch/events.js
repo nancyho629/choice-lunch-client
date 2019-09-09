@@ -12,17 +12,6 @@ const onGetRestaurants = (event) => {
     .catch(ui.onIndexFailure)
 }
 
-// const onDestroyRestaurant = (event) => {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.destroy(formData)
-//     .then(() => {
-//       ui.onDestroySuccess()
-//       onGetRestaurants()
-//     })
-//     .catch(ui.onDestroyFailure)
-// }
 
 // const onCreateRestaurant = (event) => {
 //   event.preventDefault()
@@ -46,26 +35,56 @@ const onCreateRestaurant = (event) => {
     .catch(ui.onCreateFailure)
 }
 
-// const onUpdateRestaurant = (event) => {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.update(formData)
-//     .then(ui.onUpdateSuccess)
-//     .catch(ui.onUpdateFailure)
-// }
+const onDestroyRestaurant = (event) => {
+  event.preventDefault()
+  const restaurant = $(event.target)
+  const restaurantId = restaurant.data('id')
+  console.log(event)
+  api.destroy(restaurantId)
+    .then((response) => {
+      ui.onDestroySuccess()
+      onGetRestaurants(event)
+    })
+    .catch(ui.onDestroyFailure)
+}
+
+const onUpdateClick = (event) => {
+  event.preventDefault()
+  const restaurant = $(event.target)
+  const restaurantId = restaurant.data('id')
+  console.log('onUpdateClick', event)
+
+  $(`form.return[data-id='${restaurantId}'] input`).prop('disabled', false)
+  $(`form.return[data-id='${restaurantId}'] input[type=submit]`).prop('hidden', false)
+}
+
+const onUpdateRestaurant = (event) => {
+  event.preventDefault()
+  const formData = getFormFields(event.target)
+  const restaurant = $(event.target)
+  const restaurantId = restaurant.data('id')
+  api.update(formData, restaurantId)
+    .then(responseData => {
+      $(`form.return[data-id='${restaurantId}'] input`).prop('disabled', true)
+      $(`form.return[data-id='${restaurantId}'] input[type=submit]`).prop('hidden', true)
+      ui.onUpdateSuccess(responseData)
+    })
+    .catch(ui.onUpdateFailure)
+}
 
 const addHandlers = () => {
   // $('#onGetRestaurants').on('click', onGetRestaurants)
-  // $('#onDestroyRestaurant').on('submit', onDestroyRestaurant)
+  $('.content').on('click', '.delete-restaurant', onDestroyRestaurant)
   $('#create-restaurant').on('submit', onCreateRestaurant)
-  // $('#onUpdateRestaurant').on('submit', onUpdateRestaurant)
+  $('.content').on('click', '.update-restaurant', onUpdateClick)
+  $('.content').on('submit', '.return', onUpdateRestaurant)
 }
 
 module.exports = {
   onGetRestaurants,
-  // onDestroyRestaurant,
+  onDestroyRestaurant,
   onCreateRestaurant,
-  // onUpdateRestaurant,
+  onUpdateClick,
+  onUpdateRestaurant,
   addHandlers
 }
