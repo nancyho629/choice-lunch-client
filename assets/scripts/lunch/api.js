@@ -12,12 +12,14 @@ const index = function () {
     method: 'GET'
   })
 }
-// const show = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + '/restaurants/' + data.restaurant.id,
-//     method: 'GET'
-//   })
-// }
+
+const show = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/restaurants',
+    method: 'GET'
+  })
+}
+
 const destroy = restaurantID => {
   return $.ajax({
     url: config.apiUrl + '/restaurants/' + restaurantID,
@@ -52,7 +54,7 @@ const update = (data, restaurantId) => {
 }
 module.exports = {
   index,
-  // show,
+  show,
   destroy,
   create,
   update

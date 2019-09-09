@@ -4,23 +4,20 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
 
+const onShowRestaurants = (event) => {
+  console.log(event)
+  api.show()
+    .then(ui.onIndexSuccess)
+    .catch(ui.onIndexFailure)
+}
+
 const onGetRestaurants = (event) => {
-  event.preventDefault()
+  // event.preventDefault()
   console.log('onGetRestaurants', event)
   api.index()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
 }
-
-
-// const onCreateRestaurant = (event) => {
-//   event.preventDefault()
-//   console.log(event)
-//   const data = getFormFields(event.target)
-//   api.create(data)
-//     .then(ui.onCreateSuccess)
-//     .catch(ui.onCreateFailure)
-// }
 
 const onCreateRestaurant = (event) => {
   event.preventDefault()
@@ -81,6 +78,7 @@ const addHandlers = () => {
 }
 
 module.exports = {
+  onShowRestaurants,
   onGetRestaurants,
   onDestroyRestaurant,
   onCreateRestaurant,

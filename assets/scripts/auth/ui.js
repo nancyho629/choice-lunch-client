@@ -24,6 +24,7 @@ const signInSuccess = function (data) {
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#change-password').show()
+  $('#create-restaurant').show()
 }
 
 const signInFailure = function () {

@@ -13,17 +13,7 @@ const onIndexSuccess = function (responseData) {
 const onIndexFailure = function () {
   $('#message').text(`There aren't any restaurant suggestions!`)
 }
-// let restaurantHtml = ''
-// const onShowSuccess = function (responseData) {
-//   $('#message').text(`Here's a restaurant!`)
-//   restaurantHtml = `
-//   <h3>${responseData.restaurant.name}</h3>
-//   <h4>${responseData.restaurant.cuisine}</h4>
-//   <h5>id: ${responseData.restaurant.id}</h5>
-//   <hr>
-//     `
-//   $('#results').html(restaurantHtml)
-// }
+
 // const onShowFailure = function () {
 //   $('#message').text(`Restaurant Not Found`)
 // }
@@ -37,13 +27,6 @@ const onDestroySuccess = function () {
 const onCreateSuccess = responseData => {
   $('#message').text(`You've added a new suggestion!! `)
   console.log(responseData)
-  // const restaurantHtml = `
-  //   <h3>${responseData.restaurant.title}</h3>
-  //   <h4>${responseData.restaurant.author}</h4>
-  //   <h5>id: ${responseData.restaurant.id}</h5>
-  //   <hr>
-  //     `
-  // $('#results').html(restaurantHtml)
   $('form').trigger('reset')
 }
 
