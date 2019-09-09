@@ -50,7 +50,9 @@ const signOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#change-password').hide()
-  // $('#sign-out').hide()
+  $('#sign-out').hide()
+  $('.delete-restaurant').hide()
+  $('.update-restaurant').hide()
 }
 
 const signOutFailure = function () {

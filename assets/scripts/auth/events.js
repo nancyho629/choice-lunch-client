@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
+const lunchEvents = require('../lunch/events')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -16,9 +17,23 @@ const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signIn(data)
-    .then(ui.signInSuccess)
+    .then((responseData) => {
+      ui.signInSuccess(responseData)
+      lunchEvents.onGetRestaurants()
+      console.log('data: ', data)
+      console.log('responseData', responseData)
+      console.log('events', event)
+    })
     .catch(ui.signInFailure)
 }
+
+// const onSignIn = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.signIn(data)
+//     .then(ui.signInSuccess)
+//     .catch(ui.signInFailure)
+// }
 
 const onChangePassword = function (event) {
   event.preventDefault()
@@ -44,8 +59,9 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('#change-password').show()
   $('#create-restaurant').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
 }
 
 module.exports = {

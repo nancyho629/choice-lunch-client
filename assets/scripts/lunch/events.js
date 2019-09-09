@@ -24,7 +24,6 @@ const onCreateRestaurant = (event) => {
   const data = getFormFields(event.target)
   api.create(data)
     .then(responseData => {
-      console.log('before ui.oncreatesuccs: ', responseData)
       ui.onCreateSuccess(responseData)
       onGetRestaurants(event)
     })

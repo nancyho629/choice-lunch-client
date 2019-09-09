@@ -14,9 +14,6 @@ const onIndexFailure = function () {
   $('#message').text(`There aren't any restaurant suggestions!`)
 }
 
-// const onShowFailure = function () {
-//   $('#message').text(`Restaurant Not Found`)
-// }
 const onDestroyFailure = function () {
   $('#message').text(`Restaurant Removed`)
 }
@@ -26,7 +23,6 @@ const onDestroySuccess = function () {
 
 const onCreateSuccess = responseData => {
   $('#message').text(`You've added a new suggestion!! `)
-  console.log(responseData)
   $('form').trigger('reset')
 }
 

@@ -1,4 +1,5 @@
 {{#each restaurants as |restaurant|}}
+{{log restaurant}}
   <form class="return" data-id="{{restaurant.id}}">
     <p>
     Name:
@@ -48,10 +49,12 @@
       value="Submit"
       data-id="{{restaurant.id}}" />
   </form>
-
+  <nav>
+     {{#if (userowned restaurant.user_id)}}
           <button class="delete-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Delete</button>
           <button class="update-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Update</button>
-
+     {{/if}}
+  </nav>
   <hr>
 
 {{/each}}
