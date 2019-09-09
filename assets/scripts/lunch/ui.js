@@ -7,7 +7,7 @@ const onIndexSuccess = function (responseData) {
   const showRestaurantHtml = showRestaurantsTemplate({restaurants: responseData.restaurants})
   $('.content').html(showRestaurantHtml)
   $('form.return input').prop('disabled', true)
-  // $('form.return input[type=submit]').prop('hidden', true)
+  $('form.return input[type=submit]').prop('hidden', true)
 }
 
 const onIndexFailure = function () {

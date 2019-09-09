@@ -13,7 +13,7 @@ const index = function () {
   })
 }
 
-const show = function (data) {
+const show = function () {
   return $.ajax({
     url: config.apiUrl + '/restaurants',
     method: 'GET'

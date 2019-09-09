@@ -10,7 +10,7 @@ const authEvents = require('./auth/events')
 const lunchEvents = require('./lunch/events')
 
 $(() => {
-  $(document).ready(() => lunchEvents.onShowRestaurants(event))
+  lunchEvents.onShowRestaurants()
   authEvents.addHandlers()
   lunchEvents.addHandlers()
 })

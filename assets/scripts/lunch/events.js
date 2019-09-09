@@ -4,8 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
 
-const onShowRestaurants = (event) => {
-  console.log(event)
+const onShowRestaurants = () => {
   api.show()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
