@@ -40,6 +40,7 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
+  // console.log(event)
   const data = getFormFields(event.target) // data = {passwords: {old:123, new:1234}}
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -61,10 +62,9 @@ const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('click', onSignOut)
+  $('#sign-out').on('submit', onSignOut)
   $('#create-restaurant').hide()
   $('#change-password').hide()
-  $('#sign-out').hide()
 }
 
 module.exports = {

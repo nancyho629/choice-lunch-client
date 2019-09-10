@@ -3,12 +3,12 @@
 const store = require('../store')
 
 const signUpSuccess = function () {
-  $('#login-message').text('Sign Up Successful. Please log in!')
+  $('#signup-message').text('Sign Up Successful. You\'re now logged in.')
   $('form').trigger('reset')
 }
 
 const signUpFailure = function () {
-  $('#login-message').text('Sign Up Failed. Please check that your username is not taken & your passwords match.')
+  $('#signup-message').text('Sign Up Failed. Please check that your username is not taken & your passwords match.')
   $('form').trigger('reset')
 }
 
@@ -18,7 +18,7 @@ const signInSuccess = function (data) {
   $('#login-message').text('Sign In Successful')
   $('#signed-in-user').text(`Signed in successfully as user ${store.user.email}`)
   $('form').trigger('reset')
-  $('#sign-in').hide()
+  // $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#change-password').show()
@@ -33,13 +33,13 @@ const signInFailure = function () {
 }
 
 const changePasswordSuccess = function () {
-  $('#change-pw-message').text('Change Password Successful').delay(3000).hide()
+  $('#login-message').text('Change Password Successful')
   $('form').trigger('reset')
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = function () {
-  $('#change-pw-message')
-    .text('Change password failed')
+  $('#login-message').text('Change password failed')
   $('form').trigger('reset')
 }
 
@@ -47,18 +47,21 @@ const signOutSuccess = function () {
   store.user = null
   $('#signed-in-user').text('')
   $('form').trigger('reset')
-  $('#sign-in').show()
-  $('#sign-up').show()
-  $('#change-password').hide()
   $('#sign-out').hide()
+  $('#sign-up').show()
   $('.delete-restaurant').hide()
   $('.update-restaurant').hide()
+  $('#create-restaurant').hide()
   $('.dropdown-login').show()
+  $('.dropdown').hide()
+  $('#login-message').text('Sign Out Successful')
+  $('#signup-message').text('')
 }
 
 const signOutFailure = function () {
   $('#login-message').text('Sign Out Failed')
   $('form').trigger('reset')
+  $('.dropdown').hide()
 }
 
 module.exports = {

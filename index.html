@@ -27,7 +27,7 @@
                   <fieldset>
                     <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" name="credentials[email]" placeholder="Email">
                     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="credentials[password]" placeholder="Password">
-                    <button type="submit" class="btn btn-info btn-block my-4" value="Sign In!">Sign in</button>
+                    <button type="submit" class="btn btn-info btn-block my-4">Sign in</button>
                   </fieldset>
 
                   <!-- Register -->
@@ -49,28 +49,28 @@
           Menu
         </a>
         <div class="dropdown-menu">
-          <form class="px-4 py-3">
+          <form class="px-4 py-3" id='change-password'>
 
             <div class="form-group">
               <label for="password">Change password</label>
               <!-- Change password -->
-              <form id='change-password'>
+              <!-- <form id='change-password'> -->
              <fieldset>
-                  <input type="password" class="form-control" id="password" name="passwords[old]" placeholder="Old Password">
-                  <input type="password" class="form-control" id="password" name="passwords[new]" placeholder="New Password">
-                  <button type="submit" class="btn btn-primary">Change Pasword</button>
+                  <input type="password" class="form-control validate" name="passwords[old]" placeholder="Old Password">
+                  <input type="password" class="form-control validate" name="passwords[new]" placeholder="New Password">
+                  <button type="submit" class="btn btn-info btn-block my-4">Change Password</button>
              </fieldset>
-              </form>
+              <!-- </form> -->
+            </form>
 
               <!-- sign out -->
-              <!-- <form id='sign-out'> -->
+              <form id='sign-out'>
                 <fieldset>
-                <button type="submit" id="sign-out" class="btn btn-primary" value="Sign Out!">Sign out</button>
+                <button type="submit" class="btn btn-info btn-block my-4">Sign out</button>
                 </fieldset>
-              <!-- </form> -->
+              </form>
               <!-- sign out end -->
             </div>
-          </form>
         </div>
       </div>
 
@@ -81,12 +81,11 @@
 <!-- Random Generator End -->
 </div>
 <!-- Messages -->
-
-<section class='messages'>
-  <div id="message"></div>
-</section>
 <section class='sign-in-messages'>
   <div id="signed-in-user"></div>
+</section>
+<section class='login-messages'>
+<div id="login-message"></div>
 </section>
 
 <!-- Messages end -->
@@ -102,7 +101,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <div id="login-message"></div>
+
+      <section class='signup-messages'>
+      <div id="signup-message"></div>
+      </section>
+
       <form id="sign-up">
       <div class="modal-body mx-3">
         <div class="md-form mb-4">
@@ -117,7 +120,7 @@
           <input type="password" class="form-control validate" name="credentials[password_confirmation]" placeholder="Confirm Password">
         </div>
         <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" class="btn btn-deep-orange">Sign up</button>
+            <button type="submit" class="btn btn-info btn-block my-4">Sign up</button>
           </div>
       </div>
 
@@ -139,8 +142,8 @@
     <input type="text" name="restaurant[name]" placeholder="Name">
     <input type="text" name="restaurant[cuisine]" placeholder="Cuisine">
     <input type="text" name="restaurant[url]" placeholder="URL">
-    <input type="text" name="restaurant[address]" placeholder="Address">
-    <input type="text" name="restaurant[best_thing_to_order]" placeholder="Best thing(s) to order">
+    <input type="text" name="restaurant[address]" placeholder="Address" size="35">
+    <input type="text" name="restaurant[best_thing_to_order]" placeholder="Best thing(s) to order" size="35">
     <input type="submit" value="Add Restaurant!">
   </fieldset>
 </form>

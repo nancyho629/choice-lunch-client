@@ -13,4 +13,6 @@ $(() => {
   lunchEvents.onShowRestaurants()
   authEvents.addHandlers()
   lunchEvents.addHandlers()
+  $('.dropdown').hide()
+  $('.dropdown-login').show()
 })

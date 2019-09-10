@@ -28,7 +28,8 @@ h1 {
   font-family: "Special Elite";
 }
 
-#login-message {
+.login-messages,
+.messages {
   display: flex;
   justify-content: center;
 }
