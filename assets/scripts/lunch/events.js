@@ -78,6 +78,7 @@ const addHandlers = () => {
   $('#create-restaurant').on('submit', onCreateRestaurant)
   $('.content').on('click', '.update-restaurant', onUpdateClick)
   $('.content').on('submit', '.return', onUpdateRestaurant)
+  $('#message').text('').hide()
 }
 
 module.exports = {

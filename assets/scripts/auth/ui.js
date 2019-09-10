@@ -3,32 +3,31 @@
 const store = require('../store')
 
 const signUpSuccess = function () {
-  $('#message').text('Sign Up Successful. Please log in!')
+  $('#login-message').text('Sign Up Successful. Please log in!')
   $('form').trigger('reset')
 }
 
 const signUpFailure = function () {
-  $('#message').text('Sign Up Failed. Please retry!')
+  $('#login-message').text('Sign Up Failed. Please check that your username is not taken & your passwords match.')
   $('form').trigger('reset')
 }
 
 const signInSuccess = function (data) {
   // handle storing user token, if it exists
   store.user = data.user
-  $('#message').text('Sign In Successful')
-  $('#message').removeClass()
-  $('#message').addClass('success') // optional adds class for styling
-  $('#signed-in-user').text(`Signed in user is ${store.user.email}`)
+  $('#login-message').text('Sign In Successful')
+  $('#signed-in-user').text(`Signed in successfully as user ${store.user.email}`)
   $('form').trigger('reset')
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#change-password').show()
   $('#create-restaurant').show()
+  $('.dropdown').show().fadeIn(5000)
 }
 
 const signInFailure = function () {
-  $('#message').text('Sign In Failed')
+  $('#login-message').text('Sign In Failed')
   $('form').trigger('reset')
 }
 
@@ -56,7 +55,7 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  $('#message').text('Sign Out Failed')
+  $('#login-message').text('Sign Out Failed')
   $('form').trigger('reset')
 }
 
