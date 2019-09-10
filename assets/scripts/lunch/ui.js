@@ -8,6 +8,13 @@ const onIndexSuccess = function (responseData) {
   $('.content').html(showRestaurantHtml)
   $('form.return input').prop('disabled', true)
   $('form.return input[type=submit]').prop('hidden', true)
+
+  let randomVal
+  $('a').click(event => {
+    randomVal = Math.floor(Math.random() * responseData.restaurants.length)
+    $('#comp').text(`Choice Lunch is: ${responseData.restaurants[randomVal].name} ${responseData.restaurants[randomVal].address}`)
+    // console.log('your suggestion is: ', responseData.restaurants[randomVal].name)
+  })
 }
 
 const onIndexFailure = function () {
@@ -24,6 +31,12 @@ const onDestroySuccess = function () {
 const onCreateSuccess = responseData => {
   $('#message').text(`You've added a new suggestion!! `)
   $('form').trigger('reset')
+  let randomVal
+  $('a').click(event => {
+    randomVal = Math.floor(Math.random() * responseData.restaurants.length)
+    $('#comp').text(`Choice Lunch is: ${responseData.restaurants[randomVal].name} ${responseData.restaurants[randomVal].address}`)
+    // console.log('your suggestion is: ', responseData.restaurants[randomVal].name)
+  })
 }
 
 const onCreateFailure = function () {

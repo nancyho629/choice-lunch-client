@@ -79,6 +79,7 @@ const addHandlers = () => {
   $('.content').on('click', '.update-restaurant', onUpdateClick)
   $('.content').on('submit', '.return', onUpdateRestaurant)
   $('#message').text('').hide()
+  $('.dropdown').hide()
 }
 
 module.exports = {

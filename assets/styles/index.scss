@@ -1,5 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 
+.container {
+  width: 94%;
+  max-width: 960px;
+  margin: 75px auto;
+}
+
+a, a:visited {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
 .dropdown {
   display: flex;
   font-size: 15px;
@@ -11,7 +23,7 @@
   justify-content: center;
 }
 
-.sign-in-container{
+.sign-in-container {
   display: flex;
   font-size: 15px;
   justify-content: center;
