@@ -12,7 +12,7 @@ const onShowRestaurants = () => {
 
 const onGetRestaurants = (event) => {
   // event.preventDefault()
-  console.log('onGetRestaurants', event)
+  // console.log('onGetRestaurants', event)
   api.index()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
@@ -80,6 +80,7 @@ const addHandlers = () => {
   $('.content').on('submit', '.return', onUpdateRestaurant)
   $('#message').text('').hide()
   $('.dropdown').hide()
+  $('.dropdown-login').show()
 }
 
 module.exports = {

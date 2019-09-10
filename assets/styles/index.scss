@@ -1,9 +1,12 @@
+@import 'fonts';
 @import '~bootstrap/scss/bootstrap';
 
 .container {
   width: 94%;
   max-width: 960px;
-  margin: 75px auto;
+  margin: 50px auto;
+  font-family: "Special Elite";
+  font-size: 30px;
 }
 
 a, a:visited {
@@ -12,10 +15,17 @@ a, a:visited {
   text-decoration: none;
 }
 
-.dropdown {
+.dropdown,
+.dropdown-login {
   display: flex;
   font-size: 15px;
   justify-content: flex-end;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Special Elite";
 }
 
 #login-message {
@@ -23,18 +33,25 @@ a, a:visited {
   justify-content: center;
 }
 
-.sign-in-container {
-  display: flex;
-  font-size: 15px;
-  justify-content: center;
-  margin-bottom: 10px;
-  margin-top: 20px;
-
-  fieldset {
-    border: 1px groove;
-    margin: 0 0 1.5em;
-    padding: 1.4em 1.4em 1.4em;
-    max-width: 800px;
-    min-width: 100px;
-  }
+.restaurant-style,
+.content {
+  font-family: Arapey;
+  font-size: 18px;
+  align-items: center;
 }
+
+// .sign-in-container {
+//   display: flex;
+//   font-size: 15px;
+//   justify-content: center;
+//   margin-bottom: 10px;
+//   margin-top: 20px;
+//
+//   fieldset {
+//     border: 1px groove;
+//     margin: 0 0 1.5em;
+//     padding: 1.4em 1.4em 1.4em;
+//     max-width: 800px;
+//     min-width: 100px;
+//   }
+// }

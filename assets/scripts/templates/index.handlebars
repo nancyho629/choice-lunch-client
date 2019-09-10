@@ -43,10 +43,7 @@
               placeholder="None found"
             {{/if}} />
     </p>
-    <input
-      type="submit"
-      value="Submit"
-      data-id="{{restaurant.id}}" />
+    <input type="submit" value="Submit" data-id="{{restaurant.id}}" />
   </form>
   <nav>
      {{#if (userowned restaurant.user_id)}}

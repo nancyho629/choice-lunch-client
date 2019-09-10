@@ -14,7 +14,35 @@
     <body>
       <h1>Choice Lunch</h1>
 
-      <!-- dropdown -->
+      <div class="dropdown-login">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+        </a>
+<!-- Sign in dropdown -->
+        <div class="dropdown-menu">
+          <form class="px-4 py-3" id="sign-in">
+              <div class="sign-in-container">
+                  <p class="h4 mb-4">Sign in</p>
+                  <fieldset>
+                    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" name="credentials[email]" placeholder="Email">
+                    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="credentials[password]" placeholder="Password">
+                    <button type="submit" class="btn btn-info btn-block my-4" value="Sign In!">Sign in</button>
+                  </fieldset>
+
+                  <!-- Register -->
+                  <div class="text-center">
+                  <p>New Here?
+                      <a href="" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a>
+                  </p>
+                </div>
+              </div>
+        </form>
+        </div>
+      </div>
+<!-- Sign in dropdown end -->
+
+<!-- change password sign out dropdown -->
       <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,7 +65,7 @@
               <!-- sign out -->
               <!-- <form id='sign-out'> -->
                 <fieldset>
-                <button type="submit" class="btn btn-primary" value="Sign Out!">Sign out</button>
+                <button type="submit" id="sign-out" class="btn btn-primary" value="Sign Out!">Sign out</button>
                 </fieldset>
               <!-- </form> -->
               <!-- sign out end -->
@@ -88,7 +116,9 @@
         <div class="md-form mb-4">
           <input type="password" class="form-control validate" name="credentials[password_confirmation]" placeholder="Confirm Password">
         </div>
-
+        <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" class="btn btn-deep-orange">Sign up</button>
+          </div>
       </div>
 
       </form>
@@ -97,29 +127,9 @@
 </div>
 
 <!-- sign up end -->
-<div class="sign-in-container">
-<!-- Default form login -->
-<form class="text-center border border-light p-5" id="sign-in" action="#!">
-
-    <p class="h4 mb-4">Sign in</p>
-    <fieldset>
-      <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" name="credentials[email]" placeholder="Email">
-      <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="credentials[password]" placeholder="Password">
-      <button type="submit" class="btn btn-info btn-block my-4" value="Sign In!">Sign in</button>
-    </fieldset>
-
-    <!-- Register -->
-    <div class="text-center">
-    <p>New Here?
-        <a href="" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a>
-    </p>
-  </div>
-
-</form>
-</div>
-<!-- Default form login -->
 
 <!-- create restaurant -->
+<div class="restaurant-style">
 <form id='create-restaurant'>
   <fieldset>
     <legend>Add a restaurant suggestion!</legend>
@@ -134,7 +144,7 @@
     <input type="submit" value="Add Restaurant!">
   </fieldset>
 </form>
-
+</div>
 <hr>
 <fieldset>
 <div class="content"></div>

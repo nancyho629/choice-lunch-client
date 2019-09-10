@@ -24,6 +24,7 @@ const signInSuccess = function (data) {
   $('#change-password').show()
   $('#create-restaurant').show()
   $('.dropdown').show().fadeIn(5000)
+  $('.dropdown-login').hide()
 }
 
 const signInFailure = function () {
@@ -52,6 +53,7 @@ const signOutSuccess = function () {
   $('#sign-out').hide()
   $('.delete-restaurant').hide()
   $('.update-restaurant').hide()
+  $('.dropdown-login').show()
 }
 
 const signOutFailure = function () {
