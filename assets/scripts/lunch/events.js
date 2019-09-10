@@ -67,6 +67,11 @@ const onUpdateRestaurant = (event) => {
     .catch(ui.onUpdateFailure)
 }
 
+// const randomGenerator = () => {
+//   event.preventDefault()
+//
+// }
+
 const addHandlers = () => {
   // $('#onGetRestaurants').on('click', onGetRestaurants)
   $('.content').on('click', '.delete-restaurant', onDestroyRestaurant)
@@ -83,4 +88,5 @@ module.exports = {
   onUpdateClick,
   onUpdateRestaurant,
   addHandlers
+  // randomGenerator
 }

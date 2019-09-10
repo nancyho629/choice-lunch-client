@@ -8,8 +8,14 @@ const lunchEvents = require('../lunch/events')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  const signUpIn = () => {
+    api.signIn(data)
+      .then(ui.signInSuccess)
+      .catch(ui.signInFailure)
+  }
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .then(setTimeout(signUpIn, 500))
     .catch(ui.signUpFailure)
 }
 
@@ -20,9 +26,6 @@ const onSignIn = function (event) {
     .then((responseData) => {
       ui.signInSuccess(responseData)
       lunchEvents.onGetRestaurants()
-      console.log('data: ', data)
-      console.log('responseData', responseData)
-      console.log('events', event)
     })
     .catch(ui.signInFailure)
 }
