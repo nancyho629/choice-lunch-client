@@ -20,7 +20,7 @@ const onGetRestaurants = (event) => {
 
 const onCreateRestaurant = (event) => {
   event.preventDefault()
-  console.log(event)
+  // console.log(event)
   const data = getFormFields(event.target)
   api.create(data)
     .then(responseData => {
@@ -45,12 +45,24 @@ const onDestroyRestaurant = (event) => {
 
 const onUpdateClick = (event) => {
   event.preventDefault()
+  $('.update-restaurant').hide()
   const restaurant = $(event.target)
   const restaurantId = restaurant.data('id')
-  console.log('onUpdateClick', event)
+  // console.log('onUpdateClick', event)
 
   $(`form.return[data-id='${restaurantId}'] input`).prop('disabled', false)
   $(`form.return[data-id='${restaurantId}'] input[type=submit]`).prop('hidden', false)
+}
+
+const onSubmitClick = (event) => {
+  event.preventDefault()
+  $('.update-restaurant').show()
+  const restaurant = $(event.target)
+  const restaurantId = restaurant.data('id')
+  // console.log('onUpdateClick', event)
+
+  $(`form.return[data-id='${restaurantId}'] input`).prop('disabled', true)
+  $(`form.return[data-id='${restaurantId}'] input[type=submit]`).prop('hidden', true)
 }
 
 const onUpdateRestaurant = (event) => {
@@ -88,8 +100,9 @@ const addHandlers = () => {
   // $('#onGetRestaurants').on('click', onGetRestaurants)
   $('.content').on('click', '.delete-restaurant', onDestroyRestaurant)
   $('#create-restaurant').on('submit', onCreateRestaurant)
-  $('.content').on('click', '.update-restaurant', onUpdateClick)
   $('.content').on('submit', '.return', onUpdateRestaurant)
+  $('.content').on('click', '.update-restaurant', onUpdateClick)
+  $('.content').on('click', '.submit-restaurant', onSubmitClick)
   $('#message').text('').hide()
 }
 
@@ -100,5 +113,6 @@ module.exports = {
   onCreateRestaurant,
   onUpdateClick,
   onUpdateRestaurant,
-  addHandlers
+  addHandlers,
+  onSubmitClick
 }
