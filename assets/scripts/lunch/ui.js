@@ -12,7 +12,7 @@ const onIndexSuccess = function (responseData) {
   let randomVal
   $('#comp').click(event => {
     randomVal = Math.floor(Math.random() * responseData.restaurants.length)
-    $('#comp').text(`Choice Lunch is: ${responseData.restaurants[randomVal].name} ${responseData.restaurants[randomVal].address}`)
+    $('#comp').text(`Choice Lunch is: ${responseData.restaurants[randomVal].name}, ${responseData.restaurants[randomVal].address}`)
     // console.log('your suggestion is: ', responseData.restaurants[randomVal].name)
   })
 }
@@ -34,7 +34,7 @@ const onCreateSuccess = responseData => {
   let randomVal
   $('a').click(event => {
     randomVal = Math.floor(Math.random() * responseData.restaurants.length)
-    $('#comp').text(`Choice Lunch is: ${responseData.restaurants[randomVal].name} ${responseData.restaurants[randomVal].address}`)
+    $('#comp').text(`Choice Lunch is: ${responseData.restaurants[randomVal].name}, ${responseData.restaurants[randomVal].address}`)
     // console.log('your suggestion is: ', responseData.restaurants[randomVal].name)
   })
 }
