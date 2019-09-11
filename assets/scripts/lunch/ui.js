@@ -22,33 +22,33 @@ const onIndexFailure = function () {
 }
 
 const onDestroyFailure = function () {
-  $('#login-message').text(`Restaurant Removed`)
+  $('#restaurant-message').text(`Restaurant Removed`)
 }
 const onDestroySuccess = function () {
-  $('#login-message').text(`You deleted a restaurant`)
+  $('#restaurant-message').text(`You deleted a restaurant`)
 }
 
 const onCreateSuccess = responseData => {
-  $('#login-message').text(`You've added a new suggestion!! `)
+  $('#restaurant-message').text(`You've added a new suggestion!!! Please scroll down! `)
+  $('#signed-in-user').text('')
   $('form').trigger('reset')
   let randomVal
   $('a').click(event => {
     randomVal = Math.floor(Math.random() * responseData.restaurants.length)
     $('#comp').text(`Choice Lunch is: ${responseData.restaurants[randomVal].name}, ${responseData.restaurants[randomVal].address}`)
-    // console.log('your suggestion is: ', responseData.restaurants[randomVal].name)
   })
 }
 
 const onCreateFailure = function () {
-  $('#login-message').text(`Restaurant Not Created`)
+  $('#restaurant-message').text(`Restaurant Not Created`)
   $('form').trigger('reset')
 }
 
 const onUpdateSuccess = () => {
-  $('#login-message').text(`You updated your restaurant listing! `)
+  $('#restaurant-message').text(`You updated your restaurant listing! `)
 }
 const onUpdateFailure = function () {
-  $('#login-message').text(`Restaurant Not Updated`)
+  $('#restaurant-message').text(`Restaurant Not Updated`)
 }
 
 module.exports = {

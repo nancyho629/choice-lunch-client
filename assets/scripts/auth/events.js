@@ -10,12 +10,12 @@ const onSignUp = function (event) {
   const data = getFormFields(event.target)
   const signUpIn = () => {
     api.signIn(data)
-      .then(ui.signInSuccess)
-      .catch(ui.signUpFailure)
+      .then(ui.signUpSuccess)
+      .catch(ui.signInFailure)
   }
   api.signUp(data)
     .then(ui.signUpSuccess)
-    .then(setTimeout(signUpIn, 500))
+    .then(signUpIn, 500)
     .catch(ui.signUpFailure)
 }
 

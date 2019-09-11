@@ -18,7 +18,7 @@
       <div class="dropdown-login">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sign In
+          Sign In/Sign Up
         </a>
 <!-- Sign in dropdown -->
         <div class="dropdown-menu">
@@ -26,7 +26,7 @@
               <div class="sign-in-container">
                   <p class="h4 mb-4">Sign in</p>
                   <fieldset>
-                    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" name="credentials[email]" placeholder="Email">
+                    <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" name="credentials[email]" placeholder="Email">
                     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="credentials[password]" placeholder="Password">
                     <button type="submit" class="btn btn-info btn-block my-4">Sign in</button>
                   </fieldset>
@@ -89,7 +89,9 @@
 <section class='login-messages'>
 <div id="login-message"></div>
 </section>
-
+<section class='restaurant-messages'>
+<div id="restaurant-message"></div>
+</section>
 <!-- Messages end -->
 
 <!-- sign up -->
@@ -104,9 +106,9 @@
         </button>
       </div>
 
-      <section class='signup-messages'>
+      <!-- <section class='signup-messages'>
       <div id="signup-message"></div>
-      </section>
+      </section> -->
 
       <form id="sign-up">
       <div class="modal-body mx-3">

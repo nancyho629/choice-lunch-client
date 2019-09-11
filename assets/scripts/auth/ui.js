@@ -2,8 +2,17 @@
 
 const store = require('../store')
 
-const signUpSuccess = function () {
-  $('#signup-message').text('Sign Up Successful. You\'re now logged in.')
+const signUpSuccess = function (data) {
+  store.user = data.user
+  $('#signed-in-user').text('Sign Up Successful. You\'re now logged in.')
+  $('form').trigger('reset')
+  $('.modal').modal('hide')
+  $('#create-restaurant').show()
+  $('.dropdown').show().fadeIn(5000)
+  $('.dropdown-login').hide()
+  $('#sign-up').hide()
+  $('#sign-out').show()
+  $('#change-password').show()
   $('form').trigger('reset')
 }
 

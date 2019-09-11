@@ -22,8 +22,10 @@ Deciding where to eat lunch in downtown Boston has never been easier! Come use C
 
 ### Features in the works
 - Add favorites.
+- Created restaurant suggestion appears at the top of the list.
 - Restaurant list looks like a list rather than forms, but upon clicking update it will look like a form.
 - Be able to upload an image of the restaurant.
+- Create an admin account to be able to manage suggestions.
 - Integrate Google Maps for directions.
 - Put the list of restaurant suggestions in a modal.
 - Mobile friendly.
@@ -51,7 +53,7 @@ Deciding where to eat lunch in downtown Boston has never been easier! Come use C
 - As a user, I want to click a button to get a random suggestion.
 
 ### Wireframes
-![Choice Lunch Wireframe](https://imgur.com/a/jfjQmKP)
+![Choice Lunch Wireframe](./public/WireframeChoiceLunch.png)
 
 ## Technologies Used
 - HTML
