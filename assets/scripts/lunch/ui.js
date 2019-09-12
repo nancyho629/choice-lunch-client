@@ -27,7 +27,7 @@ const onDestroySuccess = function () {
 }
 
 const onCreateSuccess = responseData => {
-  $('#restaurant-message').text(`You've added a new suggestion!!! Please scroll down! `)
+  $('#restaurant-message').text(`You've added a new suggestion!!!`)
   $('#signed-in-user').text('')
   $('form').trigger('reset')
   let randomVal
