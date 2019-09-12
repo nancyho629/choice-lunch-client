@@ -65,6 +65,7 @@ const signOutSuccess = function () {
   $('.dropdown').hide()
   $('#login-message').text('Sign Out Successful')
   $('#signup-message').text('')
+  $('#restaurant-message').text(``)
 }
 
 const signOutFailure = function () {

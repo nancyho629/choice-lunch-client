@@ -3,7 +3,6 @@ const showRestaurantsTemplate = require('../templates/index.handlebars')
 
 const onIndexSuccess = function (responseData) {
   $('#login-message').text('Here are the restaurants!')
-  // console.log('onIndexSuccess: ', responseData)
   const showRestaurantHtml = showRestaurantsTemplate({restaurants: responseData.restaurants})
   $('.content').html(showRestaurantHtml)
   $('form.return input').prop('disabled', true)
@@ -13,7 +12,6 @@ const onIndexSuccess = function (responseData) {
   $('#comp').click(event => {
     randomVal = Math.floor(Math.random() * responseData.restaurants.length)
     $('#comp').text(`Choice Lunch is: ${responseData.restaurants[randomVal].name}, ${responseData.restaurants[randomVal].address}`)
-    // console.log('your suggestion is: ', responseData.restaurants[randomVal].name)
   })
 }
 
@@ -54,8 +52,6 @@ const onUpdateFailure = function () {
 module.exports = {
   onIndexSuccess,
   onIndexFailure,
-  // onShowFailure,
-  // onShowSuccess,
   onDestroyFailure,
   onDestroySuccess,
   onCreateFailure,

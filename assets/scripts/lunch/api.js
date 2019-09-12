@@ -31,7 +31,6 @@ const destroy = restaurantID => {
 }
 
 const create = function (data) {
-  // console.log(data)
   return $.ajax({
     url: config.apiUrl + '/restaurants/',
     method: 'POST',
