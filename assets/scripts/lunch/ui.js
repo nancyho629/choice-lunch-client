@@ -7,7 +7,7 @@ const onIndexSuccess = function (responseData) {
   $('.content').html(showRestaurantHtml)
   $('form.return input').prop('disabled', true)
   $('form.return input[type=submit]').prop('hidden', true)
-  console.log(responseData)
+  // console.log(responseData)
 
   let randomVal
   $('#comp').click(event => {

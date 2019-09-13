@@ -43,7 +43,7 @@ const onDestroyRestaurant = (event) => {
 const onUpdateClick = () => {
   event.preventDefault()
   const restaurant = $(event.target)
-  console.log(event.target)
+  // console.log(event.target)
   const restaurantId = restaurant.data('id')
   const restaurantName = restaurant.data('name')
   const restaurantURL = restaurant.data('url')
