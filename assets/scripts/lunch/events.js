@@ -40,27 +40,35 @@ const onDestroyRestaurant = (event) => {
     .catch(ui.onDestroyFailure)
 }
 
-const onUpdateClick = (event) => {
+const onUpdateClick = () => {
   event.preventDefault()
   const restaurant = $(event.target)
+  console.log(event.target)
   const restaurantId = restaurant.data('id')
-  $('.update-restaurant').attr('disabled', 'disabled')
+  const restaurantName = restaurant.data('name')
+  const restaurantURL = restaurant.data('url')
+  const restaurantAddress = restaurant.data('address')
+  const restaurantCuisine = restaurant.data('cuisine')
+  const restaurantBest = restaurant.data('best_thing_to_order')
 
-  $(`form.return[data-id='${restaurantId}'] input`).prop('disabled', false)
-  $(`form.return[data-id='${restaurantId}'] input[type=submit]`).prop('hidden', false)
+  $('#rid').val(restaurantId)
+  $('#rcuisine').val(restaurantCuisine)
+  $('#rname').val(restaurantName)
+  $('#rurl').val(restaurantURL)
+  $('#raddress').val(restaurantAddress)
+  $('#rbest_thing_to_order').val(restaurantBest)
+  $('#restaurant-modal').modal('show')
 }
 
 const onUpdateRestaurant = (event) => {
   event.preventDefault()
   const formData = getFormFields(event.target)
-  const restaurant = $(event.target)
-  const restaurantId = restaurant.data('id')
-  $('.update-restaurant').removeAttr('disabled')
+  const restaurantId = formData.restaurant.id
   api.update(formData, restaurantId)
-    .then(responseData => {
+    .then(() => {
       ui.onUpdateSuccess()
-      $(`form.return[data-id='${restaurantId}'] input`).prop('disabled', true)
-      $(`form.return[data-id='${restaurantId}'] input[type=submit]`).prop('hidden', true)
+      $('#restaurant-modal').modal('hide')
+      onGetRestaurants(event)
     })
     .catch(ui.onUpdateFailure)
 }
@@ -83,12 +91,10 @@ $('#create-restaurant').click(function () {
 })
 
 const addHandlers = () => {
-  // $('#onGetRestaurants').on('click', onGetRestaurants)
   $('#create-restaurant').on('submit', onCreateRestaurant)
   $('.content').on('click', '.delete-restaurant', onDestroyRestaurant)
   $('.content').on('click', '.update-restaurant', onUpdateClick)
-  $('.content').on('submit', '.return', onUpdateRestaurant)
-  // $('.content').on('click', '.submit-restaurant', onSubmitClick)
+  $('#update-restaurant-modal').on('submit', onUpdateRestaurant)
   $('#message').text('').hide()
 }
 
