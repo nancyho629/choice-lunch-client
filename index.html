@@ -82,6 +82,7 @@
         <a href="#" id="comp">Click me for a Restaurant Suggestion!</a>
 <!-- Random Generator End -->
 </div>
+
 <!-- Messages -->
 <section class='sign-in-messages'>
   <div id="signed-in-user"></div>
@@ -109,11 +110,13 @@
       <form id="sign-up">
       <div class="modal-body mx-3">
         <div class="md-form mb-4">
-          <input type="email" class="form-control validate" name="credentials[email]" placeholder="Fake Email">
+          <input type="email" class="form-control validate" name="credentials[email]" placeholder="Fake email">
+          <label data-error="wrong" data-success="right" for="orangeForm-email"></label>
         </div>
 
         <div class="md-form mb-4">
           <input type="password" class="form-control validate" name="credentials[password]" placeholder="Fake Password">
+          <label data-error="wrong" data-success="right" for="orangeForm-pass"></label>
         </div>
 
         <div class="md-form mb-4">
@@ -139,10 +142,10 @@
     <section class='create-restaurant-message'>
       <div id="restaurant"></div>
     </section>
-    <input type="text" name="restaurant[name]" placeholder="Name">
+    <input type="text" name="restaurant[name]" placeholder="Name" required>
     <input type="text" name="restaurant[cuisine]" placeholder="Cuisine">
-    <input type="text" name="restaurant[url]" placeholder="URL">
-    <input type="text" name="restaurant[address]" placeholder="Address" size="35">
+    <input type="url" name="restaurant[url]" placeholder="URL">
+    <input type="text" name="restaurant[address]" placeholder="Address" size="35" required>
     <input type="text" name="restaurant[best_thing_to_order]" placeholder="Best thing(s) to order" size="35">
     <input type="submit" value="Add Restaurant!">
   </fieldset>

@@ -5,9 +5,6 @@ const onIndexSuccess = function (responseData) {
   $('#login-message').text('Here are the restaurants!')
   const showRestaurantHtml = showRestaurantsTemplate({restaurants: responseData.restaurants})
   $('.content').html(showRestaurantHtml)
-  $('form.return input').prop('disabled', true)
-  $('form.return input[type=submit]').prop('hidden', true)
-  // console.log(responseData)
 
   let randomVal
   $('#comp').click(event => {

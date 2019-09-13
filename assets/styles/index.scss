@@ -38,6 +38,14 @@ h1 {
   font-size: 20px;
 }
 
+.message-container {
+  bottom: 1rem;
+  left: 1rem;
+  margin: auto;
+  max-width: 500px;
+  position: fixed;
+}
+
 .restaurant-style,
 .content {
   font-family: Arapey;
