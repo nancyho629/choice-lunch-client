@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Choice Lunch</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+      <h1>Choice Lunch</h1>
+
+      <div class="dropdown-login">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sign In/Sign Up
+        </a>
+<!-- Sign in dropdown -->
+        <div class="dropdown-menu">
+          <form class="px-4 py-3" id="sign-in">
+              <div class="sign-in-container">
+                  <p class="h4 mb-4">Sign in</p>
+                  <fieldset>
+                    <input type="text" id="defaultLoginFormEmail" class="form-control validate mb-4" name="credentials[email]" placeholder="Email">
+                    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="credentials[password]" placeholder="Password">
+                    <button type="submit" class="btn btn-info btn-block my-4">Sign in</button>
+                  </fieldset>
+
+                  <!-- Register -->
+                  <div class="text-center">
+                  <p>New Here?
+                      <a href="" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a>
+                  </p>
+                </div>
+              </div>
+        </form>
+        </div>
+      </div>
+    </header>
+<!-- Sign in dropdown end -->
+
+<!-- change password sign out dropdown -->
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+        </a>
+        <div class="dropdown-menu">
+          <form class="px-4 py-3" id='change-password'>
+
+            <div class="form-group">
+              <label for="password">Change password</label>
+              <!-- Change password -->
+              <!-- <form id='change-password'> -->
+             <fieldset>
+                  <input type="password" class="form-control validate" name="passwords[old]" placeholder="Old Password">
+                  <input type="password" class="form-control validate" name="passwords[new]" placeholder="New Password">
+                  <button type="submit" class="btn btn-info btn-block my-4">Change Password</button>
+             </fieldset>
+              <!-- </form> -->
+            </form>
+
+              <!-- sign out -->
+              <form id='sign-out'>
+                <fieldset>
+                <button type="submit" class="btn btn-info btn-block my-4">Sign out</button>
+                </fieldset>
+              </form>
+              <!-- sign out end -->
+            </div>
+        </div>
+      </div>
+
+      <!-- dropdownend -->
+<!-- Random Generator -->
+      <div class="container">
+        <a href="#" id="comp">Click me for a Restaurant Suggestion!</a>
+<!-- Random Generator End -->
+</div>
+
+<!-- Messages -->
+<section class='sign-in-messages'>
+  <div id="signed-in-user"></div>
+</section>
+<section class='login-messages'>
+<div id="login-message"></div>
+</section>
+<section class='restaurant-messages'>
+<div id="restaurant-message"></div>
+</section>
+<!-- Messages end -->
+
+<!-- sign up -->
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <section class='signup-messages'>
+        <div id="signup-message"></div>
+      </section>
+
+      <form id="sign-up">
+      <div class="modal-body mx-3">
+        <div class="md-form mb-4">
+          <input type="text" class="form-control validate" name="credentials[email]" placeholder="Fake email">
+          <!-- <label data-error="wrong" data-success="right" for="orangeForm-email"></label> -->
+        </div>
+
+        <div class="md-form mb-4">
+          <input type="password" class="form-control validate" name="credentials[password]" placeholder="Fake Password">
+          <!-- <label data-error="wrong" data-success="right" for="orangeForm-pass"></label> -->
+        </div>
+
+        <div class="md-form mb-4">
+          <input type="password" class="form-control validate" name="credentials[password_confirmation]" placeholder="Confirm Fake Password">
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" class="btn btn-info btn-block my-4">Sign up</button>
+          </div>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- sign up end -->
+
+<!-- create restaurant -->
+<div class="restaurant-style">
+<form id='create-restaurant'>
+  <fieldset>
+    <legend>Add a restaurant suggestion!</legend>
+    <section class='create-restaurant-message'>
+      <div id="restaurant"></div>
+    </section>
+    <input type="text" name="restaurant[name]" placeholder="Name" required>
+    <input type="text" name="restaurant[cuisine]" placeholder="Cuisine">
+    <input type="url" name="restaurant[url]" placeholder="URL">
+    <input type="text" name="restaurant[address]" placeholder="Address" size="35" required>
+    <input type="text" name="restaurant[best_thing_to_order]" placeholder="Best thing(s) to order" size="35">
+    <input type="submit" value="Add Restaurant!">
+  </fieldset>
+</form>
+</div>
+<hr>
+<fieldset>
+<div class="content"></div>
+</fieldset>
+<!-- Create restaurant end -->
+
+<!-- Restaurant Modal -->
+<div class="modal fade" id="restaurant-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Update Restaurant</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form id="update-restaurant-modal">
+      <div class="modal-body mx-3">
+
+        <input id="rid" type="text" name="restaurant[id]" hidden>
+
+        <div class="md-form mb-4">
+          <input type="text" id="rname" class="form-control validate" name="restaurant[name]" placeholder="Name">
+        </div>
+        <div class="md-form mb-4">
+          <input type="text" id="rcuisine" class="form-control validate" name="restaurant[cuisine]" placeholder="Cuisine">
+        </div>
+        <div class="md-form mb-4">
+          <input type="text" id="rurl" class="form-control validate" name="restaurant[url]" placeholder="URL">
+        </div>
+
+        <div class="md-form mb-4">
+          <input type="text" id="raddress" class="form-control validate" name="restaurant[address]" placeholder="Address">
+        </div>
+        <div class="md-form mb-4">
+          <input type="text" id="rbest_thing_to_order" class="form-control validate" name="restaurant[best_thing_to_order]" placeholder="Best Thing to Order">
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" class="btn btn-info btn-block my-4 submit-restaurant">Update</button>
+          </div>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Restaurant modal end -->
+<!-- <iframe width="640" height="480" src="https://www.youtube.com/embed/vWaRiD5ym74" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+</body>
+</html>
