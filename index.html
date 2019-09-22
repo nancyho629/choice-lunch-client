@@ -26,7 +26,7 @@
               <div class="sign-in-container">
                   <p class="h4 mb-4">Sign in</p>
                   <fieldset>
-                    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" name="credentials[email]" placeholder="Email">
+                    <input type="text" id="defaultLoginFormEmail" class="form-control validate mb-4" name="credentials[email]" placeholder="Email">
                     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="credentials[password]" placeholder="Password">
                     <button type="submit" class="btn btn-info btn-block my-4">Sign in</button>
                   </fieldset>
@@ -107,16 +107,20 @@
         </button>
       </div>
 
+      <section class='signup-messages'>
+        <div id="signup-message"></div>
+      </section>
+
       <form id="sign-up">
       <div class="modal-body mx-3">
         <div class="md-form mb-4">
-          <input type="email" class="form-control validate" name="credentials[email]" placeholder="Fake email">
-          <label data-error="wrong" data-success="right" for="orangeForm-email"></label>
+          <input type="text" class="form-control validate" name="credentials[email]" placeholder="Fake email">
+          <!-- <label data-error="wrong" data-success="right" for="orangeForm-email"></label> -->
         </div>
 
         <div class="md-form mb-4">
           <input type="password" class="form-control validate" name="credentials[password]" placeholder="Fake Password">
-          <label data-error="wrong" data-success="right" for="orangeForm-pass"></label>
+          <!-- <label data-error="wrong" data-success="right" for="orangeForm-pass"></label> -->
         </div>
 
         <div class="md-form mb-4">
@@ -200,5 +204,6 @@
   </div>
 </div>
 <!-- Restaurant modal end -->
+<!-- <iframe width="640" height="480" src="https://www.youtube.com/embed/vWaRiD5ym74" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 </body>
 </html>

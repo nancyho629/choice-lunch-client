@@ -19,6 +19,9 @@ const signUpSuccess = function (data) {
 const signUpFailure = function () {
   $('#signup-message').text('Sign Up Failed. Please check that your username is not taken & your passwords match.')
   $('form').trigger('reset')
+  $('#signed-in-user').text('')
+  $('#restaurant-message').text(``)
+  $('#login-message').text('')
 }
 
 const signInSuccess = function (data) {
